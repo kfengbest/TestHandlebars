@@ -33,6 +33,12 @@ var lang4 = {
 	}
 }
 
+var lang5 = {
+	Book:{
+		isbn: "123445",
+		title: "Book1"
+	}
+}
 
 Handlebars.registerHelper("formatPhoneNum", function(num){
 	return "(021)-" + num; 
@@ -69,4 +75,17 @@ function initPage(){
    		 $("#content").append(cont);
     });
 
+    jQuery.getScript('TemplatesJS/ParentPartical.tmpl.js', function (data, textStatus, jqxhr) {
+   		jQuery.getScript('TemplatesJS/ChildPartical.tmpl.js', function (data, textStatus, jqxhr) {
+	    	
+	   		 var parentTmpl = Handlebars.templates['ParentPartical.hbs'];
+	   		 var childTmpl = Handlebars.templates['ChildPartical.hbs'];
+
+	   		 Handlebars.registerPartial("ChildPartical", childTmpl);
+
+	   		 var cont = parentTmpl(lang5);
+	   		 $("#content").append(cont);
+
+    	});
+    });
 }
