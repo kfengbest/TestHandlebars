@@ -18,6 +18,10 @@ var lang3 = {
 	author:{
 		firstName: "Kaven",
 		lastName: "Feng"
+	},
+	address:{
+		county: "China",
+		city: "Shanghai"
 	}
 }
 

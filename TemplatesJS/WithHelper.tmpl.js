@@ -5,7 +5,7 @@ templates['WithHelper.hbs'] = template(function (Handlebars,depth0,helpers,parti
 helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   var buffer = "", stack1, functionType="function", escapeExpression=this.escapeExpression, self=this;
 
-function program1(depth0,data) {
+function program1(depth0,data,depth1) {
   
   var buffer = "", stack1;
   buffer += "\n		<h2>";
@@ -16,6 +16,8 @@ function program1(depth0,data) {
   if (stack1 = helpers.lastName) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.lastName; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
+    + "</h2>\n		<h2>../address.county: "
+    + escapeExpression(((stack1 = ((stack1 = depth1.address),stack1 == null || stack1 === false ? stack1 : stack1.county)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
     + "</h2>\n	";
   return buffer;
   }
@@ -25,9 +27,11 @@ function program1(depth0,data) {
   else { stack1 = depth0.title; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
     + "</h1>\n	";
-  stack1 = helpers['with'].call(depth0, depth0.author, {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
+  stack1 = helpers['with'].call(depth0, depth0.author, {hash:{},inverse:self.noop,fn:self.programWithDepth(1, program1, data, depth0),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += "\n</div>";
+  buffer += "\n	<h3>address.city: "
+    + escapeExpression(((stack1 = ((stack1 = depth0.address),stack1 == null || stack1 === false ? stack1 : stack1.city)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
+    + "</h3>\n</div>";
   return buffer;
   });
 })();
