@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script language="javascript" src="3p/jquery-1.7.1.js"></script>
+        <script language="javascript" src="3p/handlebars.js"></script>
+    </head>
+    
+    <body>
+  
+        <div id="content">Content goes here</div>
+
+        <script id="people-template" type="text/x-handlebars-template">
+            <div>
+                <h2>{{first_name}}</h2>
+                <h2>{{second_name}}</h2>
+            </div>
+        </script>
+
+        <script type="text/javascript">
+             $(document).ready(function(){
+
+                // Model
+                var person1 = {first_name:"Kaven", second_name:"Feng"};
+
+                // load template
+                var SrcPeople = $("#people-template").html();
+
+                // compile template
+                var tmplPeople = Handlebars.compile(SrcPeople);
+                
+                // Apply template
+                $("#content").html(tmplPeople(person1));
+
+             });
+         </script>
+
+    </body>
+</html>
