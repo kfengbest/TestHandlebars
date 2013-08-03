@@ -1,7 +1,13 @@
 
 // Model
-var person1 = {first_name:"kaven", second_name:"feng"};
 
+var langs = {
+	programs :[
+		{lan:"javascript"},
+		{lan:"cpp"},
+		{lan:"java"}
+	]
+}
 
 function initPage(){
 
@@ -9,7 +15,7 @@ function initPage(){
     var tmplPeople = Handlebars.templates['Person.hbs'];
     
     // Apply model to template:
-    var content = tmplPeople(person1);
+    var content = tmplPeople(langs);
 
     // Apply contents
     $("#content").html(content);
